@@ -21,11 +21,8 @@ class User extends Authenticatable
         'id',
         'lastname',
         'firstname',
-        'TELEPHONE',
-        'CIN',
         'email',
         'password',
-        'confirmePassword'
 
     ];
 
