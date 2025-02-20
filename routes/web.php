@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use app\Http\Controllers\UserController;
+use App\Http\Controllers\SalleController;
 
 /*
 |--------------------------------------------------------------------------
@@ -15,25 +16,36 @@ use app\Http\Controllers\UserController;
 */
 
 
-Route::get('/', function () {
-    return view('welcome');
-});
+// Route::get('/', function () {
+//     return view('welcome');
+// });
 
-Route::get('/login', function () {
-    return view('login');
-});
+// Route::get('/login', function () {
+//     return view('login');
+// });
+// Route::get('/regestre', function () {
+//     return view('registration');
+// });
+// Route::get('/dashboard', function () {
+//     return view('dashboard');
+// });
+Route::get('/SalleCreate', [SalleController::class,'Salle']);    
+Route::post('/create', [SalleController::class,'create']);   
 
-    Route::controller(UserController::class)->group(function(){
+    // route::controller(SalleController::class)->group(function(){
+    //     Route::get('/', [SalleController::class,'index'])->name('login');    
+    // })
+    // Route::controller(UserController::class)->group(function(){
 
-    Route::get('login', 'index')->name('login');});
+    // Route::get('login', [UserController::class,'index'])->name('login');
 
     // Route::get('registration', 'registration')->name('registration');
 
     // Route::get('logout', 'logout')->name('logout');
 
-    // Route::post('validate_registration', 'validate_registration')->name('sample.validate_registration');
+    // Route::post('validate_registration', 'validate_registration')->name('user.validate_registration');
 
-    // Route::post('validate_login', 'validate_login')->name('sample.validate_login');
+    // Route::post('validate_login', 'validate_login')->name('user.validate_login');
 
     // Route::get('dashboard', 'dashboard')->name('dashboard');});
 

@@ -7,12 +7,18 @@
 		<div class="card">
 		<div class="card-header">Registration</div>
 		<div class="card-body">
-			<form action="{{ route('sample.validate_registration') }}" method="POST">
+			<form action="" method="POST">
 				@csrf
 				<div class="form-group mb-3">
-					<input type="text" name="name" class="form-control" placeholder="Name" />
-					@if($errors->has('name'))
-						<span class="text-danger">{{ $errors->first('name') }}</span>
+					<input type="text" name="lastname" class="form-control" placeholder="Prenom" />
+					@if($errors->has('lastname'))
+						<span class="text-danger">{{ $errors->first('lastname') }}</span>
+					@endif
+				</div>
+				<div class="form-group mb-3">
+					<input type="text" name="firstname" class="form-control" placeholder="Nom" />
+					@if($errors->has('firstname'))
+						<span class="text-danger">{{ $errors->first('firstname') }}</span>
 					@endif
 				</div>
 				<div class="form-group mb-3">
@@ -23,6 +29,12 @@
 				</div>
 				<div class="form-group mb-3">
 					<input type="password" name="password" class="form-control" placeholder="Password" />
+					@if($errors->has('password'))
+						<span class="text-danger">{{ $errors->first('password') }}</span>
+					@endif
+				</div>
+				<div class="form-group mb-3">
+					<input type="password" name="confrme password" class="form-control" placeholder="confirme password" />
 					@if($errors->has('password'))
 						<span class="text-danger">{{ $errors->first('password') }}</span>
 					@endif

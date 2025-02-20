@@ -20,16 +20,16 @@
                     @guest
 
                     <li class="nav-item">
-                        <a class="nav-link" href="{{ route('login') }}">Login</a>
+                        <a class="nav-link" href="/login">Login</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="{{ route('registration') }}">Register</a>
+                        <a class="nav-link" href="/regestre">register</a>
                     </li>
 
                     @else
 
                     <li class="nav-item">
-                        <a class="nav-link" href="{{ route('logout') }}">Logout</a>
+                        <a class="nav-link" href="">Logout</a>
                     </li>
 
                     @endguest
