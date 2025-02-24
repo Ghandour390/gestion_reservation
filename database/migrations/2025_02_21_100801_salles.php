@@ -13,15 +13,7 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('salles', function (Blueprint $table) {
-            $table->id();
-            $table->integer('Numero')->unique();
-            $table->integer('capacitie');
-            $table->string('type');
-            $table->string('image');
-            $table->timestamps();
-           
-        });
+        //
     }
 
     /**
@@ -31,6 +23,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('salles');
+        //
     }
 };

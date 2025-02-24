@@ -7,12 +7,12 @@ use Illuminate\Database\Eloquent\Model;
 
 class Salle extends Model
 {
-   protected $fillable=['Numero','type','capacitie'];
+   protected $fillable=['Numero','type','capacitie','image'];
 
 
 
-   public function reservation()
-    {
-        return $this->HasMany(user::class);
-    }
+   public function reservations()
+{
+    return $this->hasMany(Reservation::class);
+}
 }

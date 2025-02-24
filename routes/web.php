@@ -1,53 +1,42 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-use app\Http\Controllers\UserController;
+use App\Http\Controllers\UserController;
 use App\Http\Controllers\SalleController;
+use App\Http\Controllers\ReservationController;
 
-/*
-|--------------------------------------------------------------------------
-| Web Routes
-|--------------------------------------------------------------------------
-|
-| Here is where you can register web routes for your application. These
-| routes are loaded by the RouteServiceProvider within a group which
-| contains the "web" middleware group. Now create something great!
-|
-*/
+Route::get('/', function () {
+    return view('welcome');
+});
 
+Route::prefix('salles')->name('salles.')->group(function () {
+    Route::get('/', [SalleController::class, 'index'])->name('index');
+    Route::get('/create', [SalleController::class, 'create'])->name('create');
+    Route::post('/', [SalleController::class, 'store'])->name('store');
+    Route::get('/{salle}', [SalleController::class, 'show'])->name('show');
+    Route::get('/{salle}/edit', [SalleController::class, 'edit'])->name('edit');
+    Route::put('/{salle}', [SalleController::class, 'update'])->name('update');
+    Route::delete('/{salle}', [SalleController::class, 'destroy'])->name('destroy');
+});
 
-// Route::get('/', function () {
-//     return view('welcome');
-// });
+Route::prefix('reservations')->name('reservations.')->group(function () {
+    Route::get('/', [ReservationController::class, 'index'])->name('index');
+    Route::get('/create', [ReservationController::class, 'create'])->name('create');
+    Route::post('/', [ReservationController::class, 'store'])->name('store');
+    Route::get('/{reservation}', [ReservationController::class, 'show'])->name('show');
+    Route::get('/{reservation}/edit', [ReservationController::class, 'edit'])->name('edit');
+    Route::put('/{reservation}', [ReservationController::class, 'update'])->name('update');
+    Route::delete('/{reservation}', [ReservationController::class, 'destroy'])->name('destroy');
+});
 
-// Route::get('/login', function () {
-//     return view('login');
-// });
-// Route::get('/regestre', function () {
-//     return view('registration');
-// });
-// Route::get('/dashboard', function () {
-//     return view('dashboard');
-// });
-Route::get('/SalleCreate', [SalleController::class,'Salle']);    
-Route::post('/create', [SalleController::class,'create']);   
+Route::prefix('users')->name('users.')->group(function () {
+    Route::get('/', [UserController::class, 'index'])->name('index');
+    Route::get('/create', [UserController::class, 'create'])->name('create');
+    Route::post('/', [UserController::class, 'store'])->name('store');
+    Route::get('/{user}', [UserController::class, 'show'])->name('show');
+    Route::get('/{user}/edit', [UserController::class, 'edit'])->name('edit');
+    Route::put('/{user}', [UserController::class, 'update'])->name('update');
+    Route::delete('/{user}', [UserController::class, 'destroy'])->name('destroy');
+});
 
-    // route::controller(SalleController::class)->group(function(){
-    //     Route::get('/', [SalleController::class,'index'])->name('login');    
-    // })
-    // Route::controller(UserController::class)->group(function(){
-
-    // Route::get('login', [UserController::class,'index'])->name('login');
-
-    // Route::get('registration', 'registration')->name('registration');
-
-    // Route::get('logout', 'logout')->name('logout');
-
-    // Route::post('validate_registration', 'validate_registration')->name('user.validate_registration');
-
-    // Route::post('validate_login', 'validate_login')->name('user.validate_login');
-
-    // Route::get('dashboard', 'dashboard')->name('dashboard');});
-
-
-
+Route::get('/showing', [UserController::class, 'showing'])->name('users.showing');

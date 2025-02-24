@@ -14,7 +14,7 @@
     <a href="{{ route('salles.create') }}">Créer une nouvelle salle</a>
     <ul>
         @foreach ($salles as $salle)
-            <li>{{ $salle->numero }} (Capacité: {{ $salle->capacite }})</li>
+            <li>{{ $salle->Numero }} (Capacité: {{ $salle->capacite }})</li>
         @endforeach
     </ul>
 @endsection

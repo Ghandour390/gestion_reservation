@@ -12,12 +12,16 @@ class UserController extends Controller
 {
    public function index()
     {
-        return view('login');
+        return view('users.login');
+    }
+    public function showing()
+    {
+        return view('users.login');
     }
 
     public function registration()
     {
-        return view('registration');
+        return view('users.registration');
     }
 
     public function validate_registration(Request $request)
@@ -38,7 +42,7 @@ class UserController extends Controller
             'password' => Hash::make($data['password'])
         ]);
 
-        return redirect('login')->with('success', 'Registration Completed, now you can login');
+        return redirect('users.login')->with('success', 'Registration Completed, now you can login');
     }
 
      public function validate_login(Request $request)
@@ -52,7 +56,7 @@ class UserController extends Controller
 
         if(Auth::attempt($credentials))
         {
-            return redirect('dashboard');
+            return redirect('users.dashboard');
         }
 
         return redirect('login')->with('success', 'Login details are not valid');
@@ -62,7 +66,7 @@ class UserController extends Controller
     {
         if(Auth::check())
         {
-            return view('dashboard');
+            return view('users.dashboard');
         }
 
         return redirect('login')->with('success', 'login avec access');
@@ -74,6 +78,6 @@ class UserController extends Controller
 
         Auth::logout();
 
-        return Redirect('login');
+        return Redirect('users.login');
     }
 }

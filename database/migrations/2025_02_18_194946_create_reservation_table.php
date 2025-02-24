@@ -12,7 +12,7 @@ return new class extends Migration
      * @return void
      */
     public function up()
-    {  Schema::create('reservation', function (Blueprint $table) {
+    {  Schema::create('reservations', function (Blueprint $table) {
         $table->id();
         $table->integer('user_id');
         $table->integer('salle_id');
@@ -21,6 +21,7 @@ return new class extends Migration
         $table->date('date_finall');
         $table->foreign('user_id')->references('id')->on('users');
         $table->foreign('salle_id')->references('id')->on('salles');
+        $table->timestamps();
 
     });
     }
